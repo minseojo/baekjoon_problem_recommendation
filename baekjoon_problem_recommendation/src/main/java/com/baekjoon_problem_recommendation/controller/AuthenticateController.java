@@ -19,23 +19,22 @@ public class AuthenticateController {
 
     @GetMapping("/login")
     public String login(@ModelAttribute("member") MemberDto member, Model model) {
-        // 로그인 실패 -> 다시 로그인 페이지로 이동할 때 사용자 아이디를 보존하기 위해 모델에 추가
-        model.addAttribute("userId", member.getUserId());
         return "login";
     }
 
     @PostMapping("/login")
     public String showMemberForm(@ModelAttribute("member") MemberDto member, Model model, RedirectAttributes attributes) {
-        long findMemberId = memberRepository.authenticate(member);
+        try {
+            long findMemberId = memberRepository.authenticate(member);
 
-        if (findMemberId == -1) {
+            log.info("\n로그인 성공\n백준 ID : {}\n이름 : {}", member.getUserId(), member.getUsername());
+            model.addAttribute("member", member);
+            return "redirect:/member/" + findMemberId;
+        } catch (IllegalArgumentException e) {
             attributes.addAttribute("userId", member.getUserId());
+            attributes.addAttribute("error", e.getMessage());
             return "redirect:/login";
         }
-
-        log.info("\n로그인 성공\n백준 ID : {}\n이름 : {}", member.getUserId(), member.getUsername());
-        model.addAttribute("member", member);
-        return "redirect:/member/" + findMemberId;
     }
 
     @GetMapping("/signup")
@@ -44,8 +43,13 @@ public class AuthenticateController {
     }
 
     @PostMapping("/signup")
-    public String saveMember(@ModelAttribute("member") MemberDto member) {
-        memberRepository.save(member);
+    public String saveMember(@ModelAttribute("member") MemberDto member, RedirectAttributes attributes) {
+        try {
+            memberRepository.save(member);
+        } catch (IllegalArgumentException e) {
+            attributes.addAttribute("error", e.getMessage());
+            return "redirect:/signup";
+        }
         return "redirect:/";
     }
 }
