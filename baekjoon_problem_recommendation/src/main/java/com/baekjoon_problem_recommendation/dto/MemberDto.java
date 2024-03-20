@@ -1,7 +1,6 @@
-package com.baekjun_problem_recommendation.dto;
+package com.baekjoon_problem_recommendation.dto;
 
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
 public class MemberDto {

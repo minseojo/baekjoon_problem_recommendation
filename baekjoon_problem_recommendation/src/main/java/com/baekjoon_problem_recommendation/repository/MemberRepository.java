@@ -1,7 +1,7 @@
-package com.baekjun_problem_recommendation.repository;
+package com.baekjoon_problem_recommendation.repository;
 
-import com.baekjun_problem_recommendation.domain.Member;
-import com.baekjun_problem_recommendation.dto.MemberDto;
+import com.baekjoon_problem_recommendation.domain.Member;
+import com.baekjoon_problem_recommendation.dto.MemberDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;

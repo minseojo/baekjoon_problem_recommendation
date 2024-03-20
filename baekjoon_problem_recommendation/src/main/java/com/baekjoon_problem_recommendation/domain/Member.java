@@ -1,4 +1,4 @@
-package com.baekjun_problem_recommendation.domain;
+package com.baekjoon_problem_recommendation.domain;
 
 import lombok.Getter;
 

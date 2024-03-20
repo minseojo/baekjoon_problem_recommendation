@@ -1,4 +1,4 @@
-package com.baekjun_problem_recommendation;
+package com.baekjoon_problem_recommendation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

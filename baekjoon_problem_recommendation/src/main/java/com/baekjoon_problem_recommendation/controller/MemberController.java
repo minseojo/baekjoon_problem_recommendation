@@ -1,16 +1,13 @@
-package com.baekjun_problem_recommendation.controller;
+package com.baekjoon_problem_recommendation.controller;
 
-import com.baekjun_problem_recommendation.domain.Member;
-import com.baekjun_problem_recommendation.dto.MemberDto;
-import com.baekjun_problem_recommendation.repository.MemberRepository;
+import com.baekjoon_problem_recommendation.dto.MemberDto;
+import com.baekjoon_problem_recommendation.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @RequiredArgsConstructor
