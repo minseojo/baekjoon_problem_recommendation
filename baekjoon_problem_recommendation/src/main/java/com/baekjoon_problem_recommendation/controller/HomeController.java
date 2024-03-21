@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 public class HomeController {
 
     @GetMapping("/")
-    public String home(@ModelAttribute("member") MemberDto member) {
-        return "redirect:/login";
+    public String home() {
+        return "index";
     }
 }

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Member Profile</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .header {
+      background-color: #007bff;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+    .content {
+      padding: 20px;
+    }
+    .message p {
+      margin: 0;
+    }
+    .member-info {
+      margin-bottom: 10px;
+    }
+    .member-info strong {
+      font-weight: bold;
+    }
+    .content p {
+      text-align: center;
+    }
+
+
+
+  </style>
+</head>
+<body>
+<div class="container" th:if="${member != null}">
+  <div class="header" th:if="${member != null}">
+    <h1 th:text="${member.userId} + '님의 프로필'"></h1>
+  </div>
+  <div class="content">
+    <div class="member-info" th:if="${member != null}">
+      <p><strong>백준 ID:</strong> <span th:text="${member.userId}"></span></p>
+    </div>
+    <div class="member-info" th:if="${member != null}">
+      <p><strong>이름:</strong> <span th:text="${member.username}"></span></p>
+    </div>
+  </div>
+</div>
+
+<div class="container" th:if="${member == null}">
+  <div class="header">
+    <h1 th:if="${error}">
+        <span class="error-message" th:text="${error}"></span>
+    </h1>
+  </div>
+
+  <div class="content">
+       <p>No member found with the provided ID.</p></span>
+  </div>
+</div>
+
+
+</body>
+</html>

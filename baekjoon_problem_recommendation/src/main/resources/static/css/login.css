@@ -36,8 +36,33 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+/* 입력 필드 스타일 */
+.form-class {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-weight: bold;
+}
+
+.form-control {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* 입력 필드 패딩을 포함하여 전체 크기를 계산합니다. */
+}
+
+/* 오류 메시지 스타일 */
+.field-error {
+    color: red;
+    font-size: 14px;
+}
+
 .error-message {
-    color: red; /* 빨간색으로 설정 */
-    text-align: center;
-    margin-top: 10px; /* 에러 메시지와 입력 필드 사이의 간격 추가 */
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
 }

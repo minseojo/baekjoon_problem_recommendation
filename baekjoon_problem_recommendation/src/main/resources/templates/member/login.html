@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Member Form</title>
+    <link rel="stylesheet" href="/css/login.css" />
+</head>
+<body>
+<h1>로그인</h1>
+<form th:action="@{/login}" th:object="${member}" method="post">
+    <div class="form-class">
+        <label for="userId" class="form-label">백준 ID</label>
+        <input type="text" id="userId" th:field="*{userId}" class="form-control">
+        <div class="field-error" th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}"></div>
+    </div>
+
+    <div class="form-class">
+        <label for="username" class="form-label">이름</label>
+        <input type="text" id="username" th:field="*{username}" class="form-control">
+        <div class="field-error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+    </div>
+
+    <div class="form-class">
+        <label for="password" class="form-label">비밀번호</label>
+        <input type="password" id="password" th:field="*{password}" class="form-control">
+        <div class="field-error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+    </div>
+
+    <p><button type="submit">로그인</button></p>
+
+    <p th:if="${error}" class="error-message" th:text="${error}"></p>
+    <p>아직 회원이 아니신가요? <a href="/signup">회원가입</a>을 해주세요.</p>
+</form>
+</body>
+</html>
