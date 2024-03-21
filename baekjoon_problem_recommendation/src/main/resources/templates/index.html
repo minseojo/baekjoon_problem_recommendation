@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+    <style>
+        /* Styles for header */
+        .header {
+            background-color: #333; /* 배경색 */
+            padding: 10px; /* 링크 주변의 간격 */
+        }
+
+        .header ul {
+            display: flex;
+            list-style-type: none; /* 목록 스타일 제거 */
+            padding: 0; /* 목록 내부 간격 제거 */
+            margin: 0; /* 목록 외부 간격 제거 */
+        }
+
+        .header a {
+            color: #fff; /* 링크 텍스트 색상 */
+            text-decoration: none; /* 링크에서 밑줄 제거 */
+            margin-right: 10px; /* 링크 사이의 간격 */
+            font-size: 16px; /* 링크의 폰트 크기 */
+        }
+
+        /* Styles for navigation */
+        .nav {
+            background-color: #f4f4f4; /* 배경색 */
+            padding: 10px; /* 링크 주변의 간격 */
+        }
+
+        .nav a {
+            color: #333; /* 링크 텍스트 색상 */
+            text-decoration: none; /* 링크에서 밑줄 제거 */
+            margin-right: 10px; /* 링크 사이의 간격 */
+            font-size: 16px; /* 링크의 폰트 크기 */
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div>
+        <ul>
+            <li class="nav-item">
+                <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}">로그인</a>
+                <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/signup}">회원가입</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="nav">
+  <a href="problems/level">레벨</a>
+  <a href="problems/tags">태그</a>
+  <a href="problems/recommendation">추천</a>
+</div>
+
+</body>
+</html>
