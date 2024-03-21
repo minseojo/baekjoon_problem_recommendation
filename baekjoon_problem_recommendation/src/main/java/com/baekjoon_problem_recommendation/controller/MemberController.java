@@ -61,7 +61,7 @@ public class MemberController {
     }
 
     @GetMapping("/signup")
-    public String memberSignup(@ModelAttribute("member") MemberDto member, Model model) {
+    public String memberSignup(@ModelAttribute("member") MemberDto member) {
         return "member/signup";
     }
 
